@@ -1,36 +1,35 @@
 # MastodonAtlas
-MastodonAtlas è uno strumento di visualizzazione interattiva per l'esplorazione delle reti di server Mastodon e delle loro interconnessioni. Integra visualizzazione grafica avanzata con funzionalità di ricerca semantica per analizzare collegamenti, affinità e comunità all'interno delle reti sociali decentralizzate.
+MastodonAtlas is an interactive visualization tool for exploring Mastodon server networks and their interconnections.
 
-## Funzionalità
-- **Visualizzazione Grafica Interattiva**: Esplora le reti attraverso Sigma.js con zoom, navigazione e selezione dei nodi
-- **Ricerca Semantica Intelligente**: Ricerca basata su intelligenza artificiale tramite Sentence Transformers
-- **Metriche di Similarità Avanzate**: Supporta diverse misure di affinità (Node2Vec, analisi contenuto, ecc.)
-- **Informazioni Dettagliate**: Visualizza metadati completi con descrizioni server, regolamenti e statistiche utenti
-- **Importa/Esporta**: Carica file JSON personalizzati ed esporta le visualizzazioni in formato PNG
-- **Interfaccia Moderna**: Design responsive con controlli per etichette e dimensioni
+## Features
+- **Interactive Graph Visualization**: Explore networks with Sigma.js, including zoom, navigation, and node selection
+- **Semantic Search**: Search powered by Sentence Transformers
+- **Advanced Similarity Metrics**: Supports multiple affinity measures (Node2Vec, content analysis, etc.)
+- **Detailed Information**: Displays full metadata, including server descriptions, rules, and user statistics
+- **Import/Export**: Load custom JSON files and export visualizations as PNG
 
-## Architettura
-- **Frontend**: Applicazione React con Sigma.js per il rendering grafico
-- **Backend**: API Flask con Sentence Transformers per la ricerca semantica
-- **Formato Dati**: File JSON con struttura nodi, archi e metadati
+## Architecture
+- **Frontend**: React application with Sigma.js for graph rendering
+- **Backend**: Flask API with Sentence Transformers for semantic search
+- **Data Format**: JSON files containing node, edge, and metadata structures
 
-## Requisiti di Sistema
+## System Requirements
 ### Backend
-- **Python 3.8+** (consigliato 3.9 o 3.10)
+- **Python 3.8+** (3.9 or 3.10 recommended)
 ### Frontend  
-- **Node.js 16+** (consigliato 18+)
-- **npm 8+** oppure **yarn 1.22+**
+- **Node.js 16+** (18+ recommended)
+- **npm 8+** or **yarn 1.22+**
 
-## Guida all'Installazione
-### 1. Preparazione del Progetto
+## Installation Guide
+### 1. Project Setup
 
 ```bash
-# Scarica e decomprimi il progetto, quindi entra nella cartella
-cd vis-graph
+# Download and extract the project, then enter the folder
+cd mastodon-atlas
 ```
-### 2. Configurazione Backend
+### 2. Backend Configuration
 
-**Pacchetti Backend Necessari:**
+**Required Backend Packages:**
 - `flask==2.3.3`
 - `flask-cors==4.0.0`
 - `sentence-transformers==2.2.2`
@@ -39,14 +38,14 @@ cd vis-graph
 - `torch==2.0.1`
 - `transformers==4.33.2`
 - `huggingface-hub==0.16.4`
-### 3. Configurazione Frontend
+### 3. Frontend Configuration
 
 ```bash
-# Installa le dipendenze frontend
+# Install frontend dependencies
 npm install
 ```
 
-**Pacchetti Frontend Necessari:**
+**Required Frontend Packages:**
 - `react@18.2.0`
 - `react-dom@18.2.0`
 - `react-scripts@5.0.1`
@@ -58,45 +57,45 @@ npm install
 - `@testing-library/react@13.4.0`
 - `@testing-library/user-event@13.5.0`
 
-## Avvio dell'Applicazione
+## Running the Application
 
-### Fase 1: Avvia il Server Backend
-**⚠️ Importante:** Il server backend deve essere attivo prima di poter utilizzare la ricerca semantica.
+### Step 1: Start the Backend Server
+**⚠️ Important:** The backend server must be running before semantic search can be used.
 
 ```bash
-# Vai nella cartella backend
+# Go to the backend folder
 cd backend
 
-# Attiva l'ambiente virtuale (se creato)
+# Activate the virtual environment (if created)
 # Windows:
 venv\Scripts\activate
 # macOS/Linux:
 source venv/bin/activate
 
-# Avvia Flask
+# Start Flask
 python app.py
 ```
 
-**Risultato atteso:**
+**Expected result:**
 ```
 * Running on http://127.0.0.1:5000
 * Debug mode: on
 ```
 
-Il server API sarà disponibile su `http://localhost:5000`
+The API server will be available at `http://localhost:5000`
 
-### Fase 2: Avvia l'Interfaccia Web
-Apri un **nuovo terminale** (mantieni attivo il backend) ed esegui:
+### Step 2: Start the Web Interface
+Open a **new terminal** (keep the backend running) and execute:
 
 ```bash
-# Assicurati di essere nella cartella principale
-cd vis-graph
+# Make sure you are in the root folder
+cd mastodon-atlas
 
-# Avvia React
+# Start React
 npm start
 ```
 
-**Risultato atteso:**
+**Expected result:**
 ```
 Compiled successfully!
   
@@ -106,131 +105,126 @@ You can now view MastodonAtlas in the browser.
   On Your Network:  http://192.168.x.x:3000
 ```
 
-L'applicazione si aprirà automaticamente nel browser all'indirizzo `http://localhost:3000`
+The application will open automatically in your browser at `http://localhost:3000`
 
-### Fase 3: Verifica del Funzionamento
-1. **Backend**: Visita `http://localhost:5000` - vedrai una pagina Flask base o errore 404 (normale)
-2. **Frontend**: L'interfaccia MastodonAtlas deve caricarsi su `http://localhost:3000`
-3. **Ricerca**: Prova la ricerca semantica per verificare la comunicazione backend-frontend
+### Step 3: Verify Functionality
+1. **Backend**: Visit `http://localhost:5000` - you will see a basic Flask page or a 404 error (normal)
+2. **Frontend**: The MastodonAtlas interface should load at `http://localhost:3000`
+3. **Search**: Try semantic search to verify backend-frontend communication
 
-### Cosa Aspettarsi
-Dopo l'installazione avrai:
-- Interfaccia web su `http://localhost:3000` con visualizzazione grafica interattiva
-- Dati di esempio pre-caricati della rete Mastodon (nessun file aggiuntivo necessario)
-- Ricerca semantica IA funzionante
-- Controlli per zoom, filtri ed esplorazione
+### What to Expect
+After installation, you will have:
+- A web interface at `http://localhost:3000` with interactive graph visualization
+- Preloaded sample Mastodon network data (no additional files required)
+- Working semantic search
+- Controls for zoom, filtering, and exploration
 
-Il progetto include dati campione e modelli IA pre-addestrati - tutto funziona immediatamente.
+The project includes sample data and pre-trained models, so everything works immediately.
 
-## Come Iniziare
+## Getting Started
 
-### Primi Passi
-1. **Apri l'Applicazione**: Vai su `http://localhost:3000`
-2. **Esplora i Dati**: L'app carica automaticamente la rete di server Mastodon
-3. **Navigazione Base**:
-   - Clicca sui nodi per vedere dettagli server
-   - Rotella mouse per zoom
-   - Trascinamento per spostare la vista
-4. **Prova la Ricerca**: Inserisci termini come "gaming" o "arte" nella ricerca semantica 🔎
+### First Steps
+1. **Open the Application**: Go to `http://localhost:3000`
+2. **Explore the Data**: The app automatically loads the Mastodon server network
+3. **Basic Navigation**:
+   - Click nodes to view server details
+   - Use the mouse wheel to zoom
+   - Drag to move the view
+4. **Try Search**: Enter terms such as "gaming" or "art" in semantic search 🔎
 
-### Funzioni Avanzate
-1. **Importa Dati Personali**: Usa "📁 Import" per caricare file JSON personalizzati
-2. **Esporta Immagini**: Clicca "📸 Export" per salvare la visualizzazione
+### Advanced Features
+1. **Import Custom Data**: Use "📁 Import" to load custom JSON files
+2. **Export Images**: Click "📸 Export" to save the visualization
 
-### Controlli Principali
-**Selezione Nodi**: Cliccando su un nodo puoi:
-- Vedere informazioni dettagliate (descrizione, regole, utenti attivi)
-- Visualizzare nodi simili secondo le metriche disponibili
-- Evidenziare le connessioni nella rete
+### Main Controls
+**Node Selection**: By clicking a node, you can:
+- View detailed information (description, rules, active users)
+- Display similar nodes according to available metrics
+- Highlight network connections
 
-**Ricerca Semantica**: Con la ricerca 🔎 puoi:
-- Trovare nodi correlati a un argomento specifico
-- Scegliere se cercare in titoli, descrizioni o entrambi
+**Semantic Search**: With search 🔎, you can:
+- Find nodes related to a specific topic
+- Choose whether to search in titles, descriptions, or both
 
-**Pannello Controlli**:
-- **Min Connections**: Filtra per numero di collegamenti
-- **Similarity**: Seleziona la metrica di similarità
-- **Top K**: Imposta quanti risultati mostrare
-- **Node Sizes**: Dimensioni reali o uniformi
+**Control Panel**:
+- **Min Connections**: Filter by number of connections
+- **Similarity**: Select the similarity metric
+- **Top K**: Set how many results to display
+- **Node Sizes**: Real or uniform node sizes
 
-### Navigazione
-- **Zoom**: Pulsanti +/- o rotella mouse
-- **Movimento**: Trascina per navigare
-- **Reset Vista**: Pulsante 🎯 per centrare e ripristinare zoom
-- **Cronologia**: Pulsanti Annulla/Ripeti per tornare alle visualizzazioni precedenti
+### Navigation
+- **Zoom**: +/- buttons or mouse wheel
+- **Move**: Drag to navigate
+- **Reset View**: 🎯 button to center and reset zoom
+- **History**: Undo/Redo buttons to return to previous views
 
-## Formato Dati
-MastodonAtlas utilizza file JSON con questa struttura:
+## Data Format
+MastodonAtlas uses JSON files with the following structure:
 
 ```json
 {
-  "nodes": [
-    {
-      "id": "server.esempio.com",
-      "x": 0.5,
-      "y": 0.3,
-      "size": 10,
-      "color": "#3498db",
-      "metadata": {
-        "title": "Server Esempio",
-        "description": "Una comunità Mastodon accogliente",
-        "url": "https://server.esempio.com",
-        "active_users": 1500,
-        "rules": ["Sii gentile", "No spam", "Rispetta le leggi"]
-      },
-      "attributes": {
-        "campo_personalizzato": "valore"
-      }
-    }
-  ],
-  "edges": [
-    {
-      "source": "server1.com",
-      "target": "server2.com",
-      "size": 0.5,
-      "attributes": {},
-      "color": "#cccccc",
-      "similarities": {
-        "node2vec_similarity": 0.85,
-        "content_similarity": 0.72
-      }
-    }
-  ]
+  "nodes": [
+    {
+      "id": "server.example.com",
+      "x": 0.5,
+      "y": 0.3,
+      "size": 10,
+      "color": "#3498db",
+      "metadata": {
+        "title": "Example Server",
+        "description": "A welcoming Mastodon community",
+        "url": "https://server.example.com",
+        "active_users": 1500,
+        "rules": ["Be kind", "No spam", "Respect the law"]
+      },
+      "attributes": {
+        "custom_field": "value"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "server1.com",
+      "target": "server2.com",
+      "size": 0.5,
+      "attributes": {},
+      "color": "#cccccc",
+      "similarities": {
+        "node2vec_similarity": 0.85,
+        "content_similarity": 0.72
+      }
+    }
+  ]
 }
 ```
 
-### Campi Obbligatori Nodi:
-- `id` - Identificatore univoco (solitamente dominio server)
-- `x`, `y` - Coordinate posizione
-### Campi Opzionali Nodi:
-- `size` - Dimensione visuale
-- `color` - Colore (formato esadecimale)
-- `metadata` - Informazioni aggiuntive
-- `attributes` - Proprietà personalizzate
+### Required Node Fields:
+- `id` - Unique identifier (usually server domain)
+- `x`, `y` - Position coordinates
+- `size` - Size
+- `color` - Color (hex format)
+- `metadata` - Additional information
+- `attributes` - Custom properties
 
-### Campi Archi:
-- `source`, `target` - ID nodi collegati (obbligatori)
-- `size` - Spessore collegamento (opzionale)
-- `color` - Colore collegamento (opzionale)
-- `attributes` - Metriche similarità (opzionale)
+### Edge Fields:
+- `source`, `target` - IDs of connected nodes
+- `size` - Edge thickness
+- `color` - Edge color
+- `attributes` - Attributes
+- `similarities` - Similarity scores
 
-## Struttura Progetto
+## Project Structure
 
 ```
-vis-graph/
-├── backend/          # Server API Flask
-│   ├── app.py        # Applicazione principale
-│   ├── *.pkl         # Modelli pre-addestrati
-├── src/              # Codice sorgente React
-│   ├── components/   # Componenti React
-│   │   └── sigmaGraph.jsx  # Componente grafico principale
-│   ├── api.js        # Client API
-│   └── App.jsx       # Componente radice
-├── public/           # File statici
-└── package.json      # Dipendenze frontend
+mastodon-atlas/
+├── backend/          # Flask API server
+│   ├── app.py        # Main application
+│   ├── *.pkl         # Pre-trained models
+├── src/              # React source code
+│   ├── components/   # React components
+│   │   └── sigmaGraph.jsx  # Main graph component
+│   ├── api.js        # API client
+│   └── App.jsx       # Root component
+├── public/           # Static files
+└── package.json      # Frontend dependencies
 ```
-## Note Tecniche
-- Il backend utilizza embeddings pre-calcolati in file `.pkl` per ricerche veloci (inclusi nel progetto)
-- I dati campione si caricano automaticamente, ma è possibile importare grafi personalizzati
-- La ricerca semantica richiede il server Flask attivo
-- Supporta file grafi di grandi dimensioni con filtri e ottimizzazioni integrate
