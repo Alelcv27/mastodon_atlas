@@ -228,3 +228,5 @@ mastodon-atlas/
 ├── public/           # Static files
 └── package.json      # Frontend dependencies
 ```
+
+**Author:** Alessandro La Cava
