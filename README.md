@@ -230,3 +230,6 @@ mastodon-atlas/
 ```
 
 **Author:** Alessandro La Cava
+
+---
+Developed as an educational project at the Università della Calabria.
